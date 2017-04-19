@@ -1,0 +1,17 @@
+{
+    
+    
+    "require": {
+        "php": ">=5.5.9",
+        
+        
+        "predis/predis": "1.0.*"
+    },
+    
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
