@@ -1,0 +1,3 @@
+[2017-04-21 20:06:56] name.DEBUG: Foo [] []
+[2017-04-21 20:06:56] name.ERROR: Bar [] []
+[2017-04-21 20:06:56] name.INFO: My logger is now ready [] []

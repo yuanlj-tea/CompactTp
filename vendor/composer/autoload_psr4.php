@@ -11,4 +11,5 @@ return array(
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Noodlehaus\\' => array($vendorDir . '/hassankhan/config/src'),
     'NoahBuscher\\Macaw\\' => array($vendorDir . '/noahbuscher/macaw'),
+    'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
 );

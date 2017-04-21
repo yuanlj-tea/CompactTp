@@ -6,7 +6,8 @@
         "filp/whoops":"*",
         "hassankhan/config":"0.10.0",
         "predis/predis": "1.0.*",
-        "noahbuscher/macaw": "dev-master"
+        "noahbuscher/macaw": "dev-master",
+        "monolog/monolog":"1.22.1"
     },
     
     "repositories": {

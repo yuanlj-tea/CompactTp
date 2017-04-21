@@ -21,6 +21,10 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
             'Noodlehaus\\' => 11,
             'NoahBuscher\\Macaw\\' => 18,
         ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -43,6 +47,10 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
         'NoahBuscher\\Macaw\\' => 
         array (
             0 => __DIR__ . '/..' . '/noahbuscher/macaw',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
     );
 
