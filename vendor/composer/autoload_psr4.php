@@ -10,4 +10,5 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Noodlehaus\\' => array($vendorDir . '/hassankhan/config/src'),
+    'NoahBuscher\\Macaw\\' => array($vendorDir . '/noahbuscher/macaw'),
 );

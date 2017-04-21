@@ -19,6 +19,7 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
         'N' => 
         array (
             'Noodlehaus\\' => 11,
+            'NoahBuscher\\Macaw\\' => 18,
         ),
     );
 
@@ -38,6 +39,10 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
         'Noodlehaus\\' => 
         array (
             0 => __DIR__ . '/..' . '/hassankhan/config/src',
+        ),
+        'NoahBuscher\\Macaw\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/noahbuscher/macaw',
         ),
     );
 

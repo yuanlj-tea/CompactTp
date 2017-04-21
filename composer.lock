@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e67084f297c59c2a5b288aead38ff396",
-    "content-hash": "3c32d1a8f39dae3b6a8ed0a40a7aa2d9",
+    "hash": "0b163783466bc1b36ca288517e0e8107",
+    "content-hash": "51ea640e8050b07a69c5238c841fe160",
     "packages": [
         {
             "name": "filp/whoops",
@@ -126,6 +126,36 @@
             "time": "2016-02-11 16:21:17"
         },
         {
+            "name": "noahbuscher/macaw",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/noahbuscher/Macaw.git",
+                "reference": "a4d5e3e1871143416f95d7ced189545fb5147148"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/noahbuscher/Macaw/a4d5e3e1871143416f95d7ced189545fb5147148.zip",
+                "reference": "a4d5e3e1871143416f95d7ced189545fb5147148",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NoahBuscher\\Macaw\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple PHP router class.",
+            "time": "2016-10-13 22:34:57"
+        },
+        {
             "name": "predis/predis",
             "version": "v1.0.4",
             "source": {
@@ -226,7 +256,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "noahbuscher/macaw": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
