@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'phpssdb\\' => array($vendorDir . '/phpfastcache/phpssdb/src/phpssdb'),
+    'phpFastCache\\' => array($vendorDir . '/phpfastcache/phpfastcache/src/phpFastCache'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'Predis\\' => array($vendorDir . '/predis/predis/src'),
     'Noodlehaus\\' => array($vendorDir . '/hassankhan/config/src'),
     'NoahBuscher\\Macaw\\' => array($vendorDir . '/noahbuscher/macaw'),

@@ -1,19 +1,17 @@
 {
-    
-    
-    "require": {
-        "php": ">=5.5.9",
-        "filp/whoops":"*",
-        "hassankhan/config":"0.10.0",
-        "predis/predis": "1.0.*",
-        "noahbuscher/macaw": "dev-master",
-        "monolog/monolog":"1.22.1"
-    },
-    
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        }
+  "require": {
+    "php": ">=5.5.9",
+    "filp/whoops": "*",
+    "hassankhan/config": "0.10.0",
+    "predis/predis": "1.1.*",
+    "noahbuscher/macaw": "dev-master",
+    "monolog/monolog": "1.22.1",
+    "phpfastcache/phpfastcache": "5.0.15"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
     }
+  }
 }

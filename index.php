@@ -10,7 +10,6 @@ use Monolog\Handler\StreamHandler;
 // create a log channel
 $log = new Logger('name');
 $log->pushHandler(new StreamHandler(__DIR__.'/test.log', Logger::DEBUG ));
-
 // add records to the log
 $log->debug('Foo');
 $log->error('Bar');

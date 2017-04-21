@@ -7,6 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInitd1436ac0e545895f68078966cb239936
 {
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'phpssdb\\' => 8,
+            'phpFastCache\\' => 13,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -14,6 +19,7 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
         'P' => 
         array (
             'Psr\\Log\\' => 8,
+            'Psr\\Cache\\' => 10,
             'Predis\\' => 7,
         ),
         'N' => 
@@ -28,6 +34,14 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
     );
 
     public static $prefixDirsPsr4 = array (
+        'phpssdb\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpfastcache/phpssdb/src/phpssdb',
+        ),
+        'phpFastCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpfastcache/phpfastcache/src/phpFastCache',
+        ),
         'Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
@@ -35,6 +49,10 @@ class ComposerStaticInitd1436ac0e545895f68078966cb239936
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Psr\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
         'Predis\\' => 
         array (
