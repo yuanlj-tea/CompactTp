@@ -3,8 +3,8 @@
     
     "require": {
         "php": ">=5.5.9",
-        
-        
+        "filp/whoops":"*",
+        "hassankhan/config":"0.10.0",
         "predis/predis": "1.0.*"
     },
     
