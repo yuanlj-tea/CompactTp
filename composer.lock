@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98144be329f094d29957181f61467b16",
+    "hash": "5e954b88ebca2340c1f53adc36623f9a",
     "content-hash": "b9aa26186506fcde6641dc1d68fd218f",
     "packages": [
         {
@@ -321,16 +321,16 @@
         },
         {
             "name": "phpfastcache/phpssdb",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPSocialNetwork/phpssdb.git",
-                "reference": "6755b00200d28ce59cfabde2274d41b045acae98"
+                "reference": "60cc285bf622664d9899da699503754259e8c970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/PHPSocialNetwork/phpssdb/6755b00200d28ce59cfabde2274d41b045acae98.zip",
-                "reference": "6755b00200d28ce59cfabde2274d41b045acae98",
+                "url": "https://files.phpcomposer.com/files/PHPSocialNetwork/phpssdb/60cc285bf622664d9899da699503754259e8c970.zip",
+                "reference": "60cc285bf622664d9899da699503754259e8c970",
                 "shasum": ""
             },
             "require": {
@@ -367,7 +367,7 @@
                 "driver",
                 "ssdb"
             ],
-            "time": "2016-07-02 12:58:46"
+            "time": "2017-04-21 22:22:57"
         },
         {
             "name": "predis/predis",

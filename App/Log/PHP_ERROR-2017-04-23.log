@@ -1,0 +1,4 @@
+[23-Apr-2017 01:52:12 Asia/Shanghai] PHP Notice:  Undefined variable: a in F:\CompactTp\Framework\Core\App.php on line 11
+[23-Apr-2017 01:52:12 Asia/Shanghai] PHP Stack trace:
+[23-Apr-2017 01:52:12 Asia/Shanghai] PHP   1. {main}() F:\CompactTp\Public\index.php:0
+[23-Apr-2017 01:52:12 Asia/Shanghai] PHP   2. Framework\Core\App::run() F:\CompactTp\Public\index.php:7

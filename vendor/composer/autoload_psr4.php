@@ -15,4 +15,5 @@ return array(
     'Noodlehaus\\' => array($vendorDir . '/hassankhan/config/src'),
     'NoahBuscher\\Macaw\\' => array($vendorDir . '/noahbuscher/macaw'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'App\\Controller\\' => array($baseDir . '/App/Controller'),
 );

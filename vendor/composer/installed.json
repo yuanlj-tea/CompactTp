@@ -283,58 +283,6 @@
         ]
     },
     {
-        "name": "phpfastcache/phpssdb",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/PHPSocialNetwork/phpssdb.git",
-            "reference": "6755b00200d28ce59cfabde2274d41b045acae98"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/PHPSocialNetwork/phpssdb/6755b00200d28ce59cfabde2274d41b045acae98.zip",
-            "reference": "6755b00200d28ce59cfabde2274d41b045acae98",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0"
-        },
-        "time": "2016-07-02 12:58:46",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "phpssdb\\": "src/phpssdb/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Khoa Bui",
-                "email": "khoaofgod@gmail.com",
-                "homepage": "http://www.phpfastcache.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Georges.L",
-                "email": "contact@geolim4.com",
-                "homepage": "https://github.com/Geolim4",
-                "role": "Developer"
-            }
-        ],
-        "description": "PHP SSDB Driver for phpFastCache",
-        "homepage": "http://www.phpfastcache.com",
-        "keywords": [
-            "cache",
-            "driver",
-            "ssdb"
-        ]
-    },
-    {
         "name": "predis/predis",
         "version": "v1.1.1",
         "version_normalized": "1.1.1.0",
@@ -520,6 +468,58 @@
             "zend disk cache",
             "zend memory cache",
             "zend server"
+        ]
+    },
+    {
+        "name": "phpfastcache/phpssdb",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPSocialNetwork/phpssdb.git",
+            "reference": "60cc285bf622664d9899da699503754259e8c970"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/PHPSocialNetwork/phpssdb/60cc285bf622664d9899da699503754259e8c970.zip",
+            "reference": "60cc285bf622664d9899da699503754259e8c970",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "time": "2017-04-21 22:22:57",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "phpssdb\\": "src/phpssdb/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Khoa Bui",
+                "email": "khoaofgod@gmail.com",
+                "homepage": "http://www.phpfastcache.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Georges.L",
+                "email": "contact@geolim4.com",
+                "homepage": "https://github.com/Geolim4",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP SSDB Driver for phpFastCache",
+        "homepage": "http://www.phpfastcache.com",
+        "keywords": [
+            "cache",
+            "driver",
+            "ssdb"
         ]
     }
 ]
