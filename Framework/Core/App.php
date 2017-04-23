@@ -1,7 +1,7 @@
 <?php
 namespace Framework\Core;
 
-//use Framework\Core\Router;
+use Framework\Core\Router;
 
 class App
 {
@@ -160,7 +160,7 @@ class App
 
 
     public static function autoload($class_name)
-    {
+    {echo $class_name.'<br>';
         $className = substr($class_name, strrpos($class_name, DS) + 1);
         $class_map = array(
             'Router' => CORE_PATH . 'Router.php',
@@ -184,7 +184,6 @@ class App
         $name = self::parseName($name);
         //p($name,1);
         if (\is_file(ROOT_PATH.$name)){
-            //p(CORE_PATH,1);
             return include ROOT_PATH.$name;
         }
 

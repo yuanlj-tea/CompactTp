@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller;
+namespace App\Model;
 
 use Framework\Data\Model;
 

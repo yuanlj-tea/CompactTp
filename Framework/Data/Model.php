@@ -156,5 +156,10 @@ class Model
         return $this->data->$field = $value;
     }
 
+    // 一种更快捷的update方式
+    public function save()
+    {
+        return $this->update((array)$this->data);
+    }
 
 }

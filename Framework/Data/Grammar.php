@@ -166,11 +166,31 @@ class Grammar
         return 'group by ' . implode(', ', $groups);
     }
 
-    protected function compileOrders(Builder $query, $orders) {
+    protected function compileOrders(Builder $query, $orders)
+    {
         // 连接每一个$order与其$direction, 然后返回order by语句
-        return 'order by '.implode(', ', array_map(function ($order) {
-                return $order['column'].' '.$order['direction'];
+        return 'order by ' . implode(', ', array_map(function ($order) {
+                return $order['column'] . ' ' . $order['direction'];
             }, $orders));
+    }
+
+    public function compileUpdate(Builder $query, $values)
+    {
+        // 循环$values, 记得引用
+        foreach ($values as $key => &$value)
+            // 将所有$value改成对应的$key=?
+            $value = $key . ' = ?';
+
+        // 将$values中的之全部掏出在连接起来
+        $columns = implode(', ', array_values($values));
+
+        // 附上where语句如果有
+        // 由于更复杂的sql update语句我还没试过, 为了不坑人, 所以限制只有where语法有效
+        // 欢迎提供更复杂的where语句
+        $where = is_null($query->wheres) ? '' : $this->compileWheres($query);
+
+        // 返回update语句
+        return trim("update $query->from set $columns $where");
     }
 
 }

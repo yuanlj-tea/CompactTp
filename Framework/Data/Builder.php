@@ -420,4 +420,20 @@ class Builder
         $this->model = $model;
         return $this;
     }
+
+    // 改写数据库数据
+    public function update(array $values)
+    {
+        // 如果写保护已经开启，跳出错误
+        if ($this->writeLock) throw new Exception("data is not allow to update");
+
+        // 编译update语句
+        $sql = $this->grammar->compileUpdate($this, $values);
+
+        // 将所有变量的值合成一个数组， 其中包括条件语句部分
+        $bindings = array_values(array_merge($values, $this->getBindings()));
+
+        // 返回改写结果，成功true失败false
+        return $this->connector->update($sql, $bindings);
+    }
 }
