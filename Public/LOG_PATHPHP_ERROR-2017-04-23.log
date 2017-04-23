@@ -1,0 +1,5 @@
+[23-Apr-2017 02:07:08 Asia/Shanghai] PHP Notice:  Use of undefined constant APP_DIR - assumed 'APP_DIR' in F:\CompactTp\Framework\Core\App.php on line 44
+[23-Apr-2017 02:07:08 Asia/Shanghai] PHP Stack trace:
+[23-Apr-2017 02:07:08 Asia/Shanghai] PHP   1. {main}() F:\CompactTp\Public\index.php:0
+[23-Apr-2017 02:07:08 Asia/Shanghai] PHP   2. Framework\Core\App::run() F:\CompactTp\Public\index.php:7
+[23-Apr-2017 02:07:08 Asia/Shanghai] PHP   3. Framework\Core\App::initConst() F:\CompactTp\Framework\Core\App.php:13

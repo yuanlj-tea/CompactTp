@@ -2,8 +2,9 @@
 require(__DIR__ . '/vendor/autoload.php');
 
 require(__DIR__.'/Framework/Core/App.php');
-
-define('BASE_PATH', __DIR__);
+//require(__DIR__.'/Framework/Core/Router.php');
+require(__DIR__.'/Framework/Helper/function.php');
+\define('BASE_PATH', __DIR__);
 
 $config = require BASE_PATH.'/config/config.php';
 date_default_timezone_set($config['time_zone']);
