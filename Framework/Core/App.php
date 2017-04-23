@@ -92,8 +92,8 @@ class App
         define('APP_PATH', ROOT_PATH . 'App' . DS);   //App目录
         define('FRAME_PATH', ROOT_PATH . 'Framework' . DS);   //Framework目录
         define('CONFIG_PATH', ROOT_PATH . 'Config' . DS);      //Config目录
-        define('CONTROLLER_PATH', APP_PATH . 'Controller' . DS);  //Controller目录
-        define('MODEL_PATH', APP_PATH . 'Model' . DS);    //Model目录
+        define('CONTROLLER_PATH', ROOT_PATH . 'Controller' . DS);  //Controller目录
+        define('MODEL_PATH', ROOT_PATH . 'Model' . DS);    //Model目录
         define('VIEW_PATH', APP_PATH . 'View' . DS);  //View目录
         define('CORE_PATH', FRAME_PATH . 'Core' . DS);    //Core目录
         define('LIB_PATH', FRAME_PATH . 'Lib' . DS);  //Lib目录
@@ -102,12 +102,12 @@ class App
         define('LOG_PATH', APP_PATH . 'Log' . DS);    //错误日志保存的文件夹目录
 
         //\define('APP_DIR', $app_dir . DIRECTORY_SEPARATOR);
-        \define('APP_NS', basename(APP_PATH) . '\\');
-        \define('BASE_APP',basename(ROOT_PATH).DS.'App'.DS);
+        \define('APP_NS', basename(ROOT_PATH) . '\\');
+
         // now time
         define('APP_TS', \time());
 
-        self::$tr_pairs = array(APP_NS => APP_PATH, 'Parith\\' => FRAME_PATH, '\\' => DIRECTORY_SEPARATOR);
+        self::$tr_pairs = array(APP_NS => ROOT_PATH, 'Framework\\' => FRAME_PATH, '\\' => DIRECTORY_SEPARATOR);
 
 //p(self::$tr_pairs,1);
         // Parith Exception handler
@@ -146,7 +146,7 @@ class App
         } else {      //运行模式
             ini_set('display_errors', 'off');        //在浏览器上不显示错误
             ini_set('log_errors', 'on');             //开启记录错误日志
-            $log_name = 'PHP_ERROR-' . date('Y-m-d');                //错误日志名
+            $log_name = 'php_error_' . date('Y-m-d');                //错误日志名
             $log_path = LOG_PATH . $log_name . '.log';    //错误日志保存路径
             ini_set('error_log', $log_path);         //保存错误日志
         }
@@ -160,13 +160,14 @@ class App
 
 
     public static function autoload($class_name)
-    {echo $class_name.'<br>';
-        $className = substr($class_name, strrpos($class_name, DS) + 1);
+    {
+        //echo $class_name.'<br>';
+        /*$className = substr($class_name, strrpos($class_name, DS) + 1);
         $class_map = array(
             'Router' => CORE_PATH . 'Router.php',
 
         );
-        /*if (isset($class_map[$className])) {
+        if (isset($class_map[$className])) {
             require $class_map[$className];
         }*/
         return self::import($class_name . '.php', false);
@@ -182,9 +183,9 @@ class App
     public static function import($name, $throw = true)
     {
         $name = self::parseName($name);
-        //p($name,1);
-        if (\is_file(ROOT_PATH.$name)){
-            return include ROOT_PATH.$name;
+
+        if (\is_file($name)){
+            return include $name;
         }
 
         if ($throw){
