@@ -436,4 +436,12 @@ class Builder
         // 返回改写结果，成功true失败false
         return $this->connector->update($sql, $bindings);
     }
+
+    public function create(array $attributes)
+    {
+        // 编译insert语法
+        $sql = $this->grammar->compileInsert($this, $attributes);
+        // 返回自增id/null, false如果失败
+        return $this->connector->create($sql, array_flatten($attributes));
+    }
 }

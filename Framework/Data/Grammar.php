@@ -193,4 +193,27 @@ class Grammar
         return trim("update $query->from set $columns $where");
     }
 
+    public function compileInsert(Builder $query, array $values)
+    {
+        // 带入表名
+        $table = $query->from;
+
+        // 判定$values如果不是多维数组(仅一条数据)
+        // 将之转成多维数组
+        if (!is_array(reset($values)))
+            $values = [$values];
+
+        // 将数组的键名用逗号连接起来
+        $columns = implode(', ', array_keys(reset($values)));
+
+        // 循环每条数据
+        // 用逗号连接与数据值等量的问号, 再用括弧围起 => (?, ?)
+        // 最后用逗号连接与所有数据 => (?, ?), (?, ?)
+        $parameters = implode(', ', array_map(function ($record) {
+            return "(" . implode(', ', array_fill(0, sizeof($record), '?')) . ")";
+        }, $values));
+
+        return "insert into $table ($columns) values $parameters";
+    }
+
 }
