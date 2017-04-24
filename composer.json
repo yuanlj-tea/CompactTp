@@ -6,8 +6,8 @@
     "predis/predis": "1.1.*",
     "noahbuscher/macaw": "dev-master",
     "monolog/monolog": "1.22.1",
-    "phpfastcache/phpfastcache": "5.0.15",
-    "noahbuscher/macaw": "dev-master"
+    "phpfastcache/phpfastcache": "5.0.15"
+
   },
   "autoload": {
     "psr-4": {
