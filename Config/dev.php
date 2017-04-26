@@ -19,7 +19,8 @@ $dev=[
         'host'   => '127.0.0.1',
         'port'   => 11211,
         'predix' => 'office_gold_' //cache
-    )
+    ),
+    'DEFAULT_M_LAYER'       =>  'Model', // 默认的模型层名称
 
 ];
 

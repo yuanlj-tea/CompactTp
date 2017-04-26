@@ -123,8 +123,10 @@ class App
         $GLOBALS['conf'] = require(CONFIG_PATH . 'config.php');
         if ($GLOBALS['conf']['debug']) {
             $GLOBALS['config'] = require(CONFIG_PATH . 'dev.php');
+            C(include CONFIG_PATH.'dev.php');
         } else {
             $GLOBALS['config'] = require(CONFIG_PATH . 'online.php');
+            C(include CONFIG_PATH.'online.php');
         }
     }
 
