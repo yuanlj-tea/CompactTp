@@ -55,3 +55,20 @@ if(!function_exists('C')){
     }
 }
 
+/**
+ * 加载配置文件 支持格式转换 仅支持一级配置
+ * @param string $file 配置文件名
+ * @param string $parse 配置解析方法 有些格式需要用户自己解析
+ * @return array
+ */
+function load_config($file){
+    $ext  = pathinfo($file,PATHINFO_EXTENSION);
+    switch($ext){
+        case 'php':
+            return include $file;
+        case 'json':
+            return json_decode(file_get_contents($file), true);
+
+    }
+}
+
