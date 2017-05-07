@@ -109,7 +109,7 @@ class App
 
         self::$tr_pairs = array(APP_NS => ROOT_PATH, 'Framework\\' => FRAME_PATH, '\\' => DIRECTORY_SEPARATOR);
 
-//p(self::$tr_pairs,1);
+
         // Parith Exception handler
         //\set_error_handler('\Parith\Exception::error');
         //\set_exception_handler('\Parith\Exception::handler');

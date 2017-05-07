@@ -7,8 +7,9 @@ class Home
 {
     public function home()
     {
-        p(C());
         header("Content-Type:text/html;charset=utf-8");
-        //$message=new Message();
+        $model=new Message();
+        $msg=$model->getMsgById(7);
+        p($msg,1);
     }
 }

@@ -2,15 +2,13 @@
 namespace CompactTp\Model;
 
 //use Framework\Data\Model;
-use Framework\Think\Model;
+
 class Message extends Model
 {
-    protected $table = 'message';
+    protected $table_name = 'message';
 
-    protected $identity = 'id';
-
-    public function __construct()
+    public function getMsgById($id)
     {
-        $a=D('test');
+        return $this->fetchAll(array('id'=>$id));
     }
 }
