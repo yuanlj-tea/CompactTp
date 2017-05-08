@@ -1,4 +1,5 @@
 <?php
+
 namespace Framework\Db\Source;
 
 use CompactTp\Lib\Log;
@@ -6,19 +7,19 @@ use CompactTp\Lib\Log;
 class Database extends \Framework\Db\Source
 {
     const
-        MODIFIER_INSERT='INSERT INTO',
-        MODIFIER_INSERT_IGNORE='INSERTIGNORE INTO',
-        MODIFIER_REPLACE='REPLACE INTO';
+        MODIFIER_INSERT = 'INSERT INTO',
+        MODIFIER_INSERT_IGNORE = 'INSERTIGNORE INTO',
+        MODIFIER_REPLACE = 'REPLACE INTO';
     public $sth, $clauses = array(), $params = array(), $fetch_mode = 0;
 
-    public static $options=array(
-        'driver'=>'mysql',
-        'host'=>'127.0.0.1',
-        'port'=>3306,
-        'dbname'=>null,
-        'username'=>'root',
-        'password'=>null,
-        'options'=>array(
+    public static $options = array(
+        'driver' => 'mysql',
+        'host' => '127.0.0.1',
+        'port' => 3306,
+        'dbname' => null,
+        'username' => 'root',
+        'password' => null,
+        'options' => array(
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_SILENT,
             \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
 
@@ -29,8 +30,8 @@ class Database extends \Framework\Db\Source
         ),
     );
 
-    public function __construct(array $options=array())
-    {p($options,1);
+    public function __construct(array $options = array())
+    {
         parent::__construct($options);
         $this->initial();
     }
@@ -40,16 +41,17 @@ class Database extends \Framework\Db\Source
      */
     public function connect(array $options)
     {
-        $options=static::option($options);
-        try{
-            $this->link=new \PDO(
+        $options = static::option($options);
+        try {
+            $this->link = new \PDO(
                 "{$options['driver']}:host={$options['host']};port={$options['port']};dbname={$options['dbname']}",
                 $options['username'],
                 $options['password'],
                 $options['options']
             );
-        }catch (\PDOException $e){
-            \Framework\Core\Exception::handle($e);
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage());
+            //\Framework\Core\Exception::handle($e);
         }
     }
 
@@ -59,7 +61,7 @@ class Database extends \Framework\Db\Source
      */
     public static function instanceKey($options)
     {
-        return $options['host'].':'.$options['port'].':'.$options['dbname'];
+        return $options['host'] . ':' . $options['port'] . ':' . $options['dbname'];
     }
 
     /**
@@ -67,17 +69,17 @@ class Database extends \Framework\Db\Source
      */
     public function initial()
     {
-        $this->clauses=array(
-            'fields'=>'*',
-            'table'=>'',
-            'join'=>'',
-            'where'=>' WHERE 1',
-            'group'=>'',
-            'having'=>'',
-            'order'=>'',
-            'limit'=>'',
+        $this->clauses = array(
+            'fields' => '*',
+            'table' => '',
+            'join' => '',
+            'where' => ' WHERE 1',
+            'group' => '',
+            'having' => '',
+            'order' => '',
+            'limit' => '',
         );
-        $this->params=array();
+        $this->params = array();
         return $this;
     }
 
@@ -87,7 +89,7 @@ class Database extends \Framework\Db\Source
      */
     public function field($fields)
     {
-        $this->clauses['fields']=$fields;
+        $this->clauses['fields'] = $fields;
         return $this;
     }
 
@@ -97,9 +99,10 @@ class Database extends \Framework\Db\Source
      */
     public function table($table)
     {
-        $this->clauses['table']=$table;
+        $this->clauses['table'] = $table;
         return $this;
     }
+
     /**
      * where('gender', 'male')
      *
@@ -118,7 +121,7 @@ class Database extends \Framework\Db\Source
     {
 
         if ($value === null) {
-            // var_dump('xxxxx1111');
+
             $value = $operator;
             if (strpos($field, '?') === false) {
                 $operator = '= ?';
@@ -126,17 +129,17 @@ class Database extends \Framework\Db\Source
                 $operator = '';
             }
 
-            if (strpos($value,'>=') !== false) {
-                $operator = ''.$value;
+            if (strpos($value, '>=') !== false) {
+                $operator = '' . $value;
             }
 
         } else {
-            // var_dump('xxxxx222');
+
             if (strtoupper($operator) == 'IN') {
                 $in = substr(str_repeat(',?', count($value)), 1);
                 $operator = "IN ($in)";
             } elseif (strtoupper($operator) == 'AND' || strtoupper($operator) == 'OR') {
-                $operator = $field . " > '" . $value[0] . "' " . $operator ." ". $field . " < '" . $value[1] . "'";
+                $operator = $field . " > '" . $value[0] . "' " . $operator . " " . $field . " < '" . $value[1] . "'";
             } else {
                 $operator .= ' ?';
             }
@@ -149,7 +152,7 @@ class Database extends \Framework\Db\Source
         if (is_array($value))
             $this->params = array_merge($this->params, $value);
         else {
-            if (strpos($value,'>=') === false) {
+            if (strpos($value, '>=') === false) {
                 $this->params[] = $value;
             }
         }
@@ -157,6 +160,7 @@ class Database extends \Framework\Db\Source
 
         return $this;
     }
+
     /**
      * @param $limit
      * @param int $offset
@@ -169,6 +173,7 @@ class Database extends \Framework\Db\Source
 
         return $this;
     }
+
     /**
      * @param $group
      * @return Database
@@ -180,6 +185,7 @@ class Database extends \Framework\Db\Source
 
         return $this;
     }
+
     /**
      * @param string|array $order
      *          - 'id'
@@ -216,6 +222,7 @@ class Database extends \Framework\Db\Source
 
         return $this;
     }
+
     /**
      * @param $where
      * @return $this
@@ -227,6 +234,7 @@ class Database extends \Framework\Db\Source
 
         return $this;
     }
+
     /**
      * @param array $join
      *          - array('comment' => 'blog.comment_id=comment.id')
@@ -250,6 +258,7 @@ class Database extends \Framework\Db\Source
 
         return $this;
     }
+
     /**
      * @param $data
      * @return int
@@ -269,6 +278,7 @@ class Database extends \Framework\Db\Source
 
         return $this->rowCount();
     }
+
     /**
      * @param $data
      * @param string $modifier
@@ -297,6 +307,7 @@ class Database extends \Framework\Db\Source
 
         return $ret;
     }
+
     /**
      * @return int
      */
@@ -317,6 +328,7 @@ class Database extends \Framework\Db\Source
 
         return $this->setPDOFetchMode()->fetch();
     }
+
     /**
      * @param $query
      * @param array $params
@@ -346,6 +358,7 @@ class Database extends \Framework\Db\Source
         }
         return $result;
     }
+
     /**
      * @return array
      */
@@ -359,7 +372,7 @@ class Database extends \Framework\Db\Source
      */
     public function getSelectClause()
     {
-        $c = & $this->clauses;
+        $c = &$this->clauses;
         return 'SELECT ' . $c['fields'] . ' FROM ' . $c['table'] . $c['join'] . $c['where'] . $c['group'] . $c['having'] . $c['order'] . $c['limit'] . ';';
     }
 
@@ -372,6 +385,7 @@ class Database extends \Framework\Db\Source
         $this->fetch_mode = $mode;
         return $this;
     }
+
     /**
      * @return statement
      */
@@ -386,6 +400,7 @@ class Database extends \Framework\Db\Source
 
         return $this->sth;
     }
+
     /**
      * @return mixed
      */
@@ -393,6 +408,7 @@ class Database extends \Framework\Db\Source
     {
         return $this->sth->debugDumpParams();
     }
+
     /**
      * @return string
      */
@@ -409,6 +425,7 @@ class Database extends \Framework\Db\Source
     {
         return $this->link->lastInsertId($name);
     }
+
     /**
      * @return array
      */
@@ -416,6 +433,7 @@ class Database extends \Framework\Db\Source
     {
         return $this->sth->errorInfo();
     }
+
     /**
      * @return int
      */
@@ -436,20 +454,21 @@ class Database extends \Framework\Db\Source
         return $this->link->setAttribute($attr, $val);
     }
 
-    private function writeSqlLog($sql,$params) {
+    private function writeSqlLog($sql, $params)
+    {
         $value = $last_sql = '';
-        preg_match_all('/\?/',$sql,$matches);
+        preg_match_all('/\?/', $sql, $matches);
         if (!empty($matches[0])) {
             foreach ($matches[0] as $key => $value) {
-                if (strpos($sql,'?') !== false) {
-                    $position = strpos($sql,'?');
-                    $old = substr($sql, 0, $position+1);
-                    $new = substr_replace($sql,"'" . $params[$key] . "'",$position);
+                if (strpos($sql, '?') !== false) {
+                    $position = strpos($sql, '?');
+                    $old = substr($sql, 0, $position + 1);
+                    $new = substr_replace($sql, "'" . $params[$key] . "'", $position);
                     $sql = str_replace($old, $new, $sql);
                 }
             }
         }
-        $msg = "\t".$sql;
+        $msg = "\t" . $sql;
         Log::addSqlLog($msg);
     }
 

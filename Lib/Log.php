@@ -44,7 +44,7 @@ class Log
         $action = empty($action) ? 'index' : $action;
         $dir = dirname(dirname(__FILE__)) . '/Data/logs/' ;
         if (!@file_exists($dir)) {
-            @mkdir($dir, 0777);
+            @mkdir($dir, 0777,true);
         }
         $fname = $dir . $action .'.log';
         $mesg = "[".date("Y-m-d H:i:s")."]----" . $sql."\n";
@@ -52,7 +52,7 @@ class Log
             @touch($fname);
             @chmod($fname, 0777);
         }
-        #error_log($mesg, 3, $fname);
+        //error_log($mesg, 3, $fname);
     }
 
 }
