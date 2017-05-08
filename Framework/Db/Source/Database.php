@@ -30,7 +30,7 @@ class Database extends \Framework\Db\Source
     );
 
     public function __construct(array $options=array())
-    {
+    {p($options,1);
         parent::__construct($options);
         $this->initial();
     }

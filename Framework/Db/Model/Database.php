@@ -25,7 +25,7 @@ class Database extends \Framework\Db\Model
      * @param array $query
      */
     public function connection($options,$query=array())
-    {
+    {p(12,1);
         return $this->link = new \Framework\Db\Source\Database($options);
     }
 
@@ -86,6 +86,7 @@ class Database extends \Framework\Db\Model
      * @return mixed
      */
     public function fetchAll($query, $connection = null, array $params = array(), $mode = null) {
+
         $this->connection($connection, $query);
 
         if (!is_string($query)) {
