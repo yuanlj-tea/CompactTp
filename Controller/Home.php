@@ -2,11 +2,13 @@
 namespace CompactTp\Controller;
 
 use CompactTp\Model\Message;
-
-class Home
+use Framework\Lib\Request;
+class Home extends Basic
 {
     public function home()
     {
+        //p(Request::isAjax(),1);
+        //p($_SERVER,1);
         header("Content-Type:text/html;charset=utf-8");
         $model=new Message();
         $msg=$model->getMsgById(7);
