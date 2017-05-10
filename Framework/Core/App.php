@@ -1,4 +1,5 @@
 <?php
+
 namespace Framework\Core;
 
 use Framework\Core\Router;
@@ -18,6 +19,40 @@ class App
         self::initAutoLoadRegister();
         self::dispatch(self::getPathInfo());
 
+    }
+
+    /**
+     * cli.php uid=1&action=abc method=send
+     * php cli.php crontab/index123?a=c  name=123123
+     * @param $app_dir
+     * @throws Exception
+     */
+    public static function cli($app_dir)
+    {
+        $argv = $_SERVER['argv'];
+
+        if (!isset($argv[1]))
+            throw new \Exception('Please input Controller/Action');
+
+        // treated as $_POST
+        if (isset($argv[2]))
+            \parse_str($argv[2], $_POST);
+
+        $argv = \explode('?', $argv[1]);
+
+        // treated as $_GET
+        if (isset($argv[1]))
+            \parse_str($argv[1], $_GET);
+
+        self::$is_cli = true;
+
+        self::initConst($app_dir);
+        self::initConfig();
+        self::initError();
+        self::setOption($GLOBALS['config']);
+        self::initAutoLoadRegister();
+
+        self::dispatch($argv[0]);
     }
 
     public static function setOption($key, $val = null)
@@ -72,7 +107,7 @@ class App
     {
         $class = APP_NS . 'Controller\\' . $name;
         //p($class,1);
-        if (\class_exists($class)){
+        if (\class_exists($class)) {
             return new $class;
         }
 
@@ -123,10 +158,10 @@ class App
         $GLOBALS['conf'] = require(CONFIG_PATH . 'config.php');
         if ($GLOBALS['conf']['debug']) {
             $GLOBALS['config'] = require(CONFIG_PATH . 'dev.php');
-            C(load_config(CONFIG_PATH.'dev.php'));
+            C(load_config(CONFIG_PATH . 'dev.php'));
         } else {
             $GLOBALS['config'] = require(CONFIG_PATH . 'online.php');
-            C(load_config(CONFIG_PATH.'online.php') );
+            C(load_config(CONFIG_PATH . 'online.php'));
         }
     }
 
@@ -186,11 +221,11 @@ class App
     {
         $name = self::parseName($name);
 
-        if (\is_file($name)){
+        if (\is_file($name)) {
             return include $name;
         }
 
-        if ($throw){
+        if ($throw) {
             throw new \Parith\Exception('File "' . $name . '" is not exists');
         }
 
