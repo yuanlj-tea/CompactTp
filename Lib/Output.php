@@ -47,6 +47,7 @@ class Output
 
         $smarty->display($tpl);
     }
+
     public static function assign($key, $val = NULL) {
         if (is_array($key)) {
             self::$var = self::$var ? array_merge(self::$var, $key) : $key;
@@ -54,6 +55,7 @@ class Output
             self::$var[$key] = $val;
         }
     }
+
     private static function getSmarty() {
         if (!self::$smarty) {
             // 初始化smarty
