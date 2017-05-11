@@ -14,4 +14,11 @@ class Home extends Basic
         $msg=$model->getMsgById(7);
         p($msg,1);
     }
+
+    public function view()
+    {
+        $data=['test'=>'test smarty view'];
+        $this->assign($data);
+        $this->display('home/view.html');
+    }
 }
