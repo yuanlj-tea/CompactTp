@@ -44,38 +44,3 @@ abstract class Common
 }
 
 
-/**
- * Str
- *
- * Parith :: a compact PHP framework
- *
- * @package Parith
- * @author Zephyr Sun
- * @copyright 2009-2013 Zephyr Sun
- * @license http://www.parith.net/license
- * @link http://www.parith.net/
- */
-
-abstract class Str
-{
-    /**
-     * @param $val
-     * @return string
-     */
-    public static function encode($val)
-    {
-        return \json_encode($val);
-    }
-
-    /**
-     * @param $val
-     * @return mixed
-     */
-    public static function decode($val)
-    {
-        if ($val)
-            return \json_decode($val, true);
-
-        return $val;
-    }
-}

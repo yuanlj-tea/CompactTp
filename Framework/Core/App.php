@@ -226,7 +226,7 @@ class App
         }
 
         if ($throw) {
-            throw new \Parith\Exception('File "' . $name . '" is not exists');
+            throw new \Exception('File "' . $name . '" is not exists');
         }
 
         return false;
