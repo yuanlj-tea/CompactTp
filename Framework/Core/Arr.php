@@ -1,4 +1,5 @@
 <?php
+
 namespace Framework\Core;
 
 /**
@@ -19,9 +20,9 @@ abstract class Arr
      * @param $key
      * @param null $default
      */
-    public static function get(array $arr,$key,$default=null)
+    public static function get(array $arr, $key, $default = null)
     {
-        if(isset($arr[$key])){
+        if (isset($arr[$key])) {
             return $arr[$key];
         }
         return $default;
@@ -34,12 +35,12 @@ abstract class Arr
      * @param string $delimiter
      * @return mixed
      */
-    public static function pathSet(array &$arr,$key,$val,$delimiter=',')
+    public static function pathSet(array &$arr, $key, $val, $delimiter = ',')
     {
-        foreach(\explode($delimiter,$key) as $v){
-            $arr=& $arr[$v] or $arr=array();
+        foreach (\explode($delimiter, $key) as $v) {
+            $arr =& $arr[$v] or $arr = array();
         }
-        return $arr=$val;
+        return $arr = $val;
     }
 
     /**
@@ -48,10 +49,10 @@ abstract class Arr
      * @param string $delimiter
      * @return array|bool|mixed
      */
-    public static function pathGet(array &$arr,$key,$delimiter=',')
+    public static function pathGet(array &$arr, $key, $delimiter = ',')
     {
-        foreach(\explode($delimiter,$key) as $val){
-            if(!$arr=&$arr[$val]){
+        foreach (\explode($delimiter, $key) as $val) {
+            if (!$arr =& $arr[$val]) {
                 return false;
             }
         }
@@ -62,18 +63,19 @@ abstract class Arr
      * @param array $arr
      * @param $key
      */
-    public static function pathDelete(array &$arr,$key)
+    public static function pathDelete(array &$arr, $key)
     {
-        $val=\explode('.',$key);
-        $last=\end($val);
-        foreach($val as $v){
-            if($v===$last){
+        $val = \explode('.', $key);
+        $last = \end($val);
+        foreach ($val as $v) {
+            if ($v === $last) {
                 unset($arr[$v]);
-            }else{
-                $arr=&$arr[$v];
+            } else {
+                $arr =& $arr[$v];
             }
         }
     }
+
     /**
      * Arr::unshift($array, 'first element', 'element value')
      *
@@ -83,12 +85,13 @@ abstract class Arr
      * @param mixed $val
      * @return array
      */
-    public static function unshift(array &$arr,$key,$val)
+    public static function unshift(array &$arr, $key, $val)
     {
-        $arr=\array_reverse($arr,true);
-        $arr[$key]=$val;
-        return \array_reverse($arr,true);
+        $arr = \array_reverse($arr, true);
+        $arr[$key] = $val;
+        return \array_reverse($arr, true);
     }
+
     /**
      * check value whether exists in array
      *
@@ -106,6 +109,7 @@ abstract class Arr
 
         return false;
     }
+
     /**
      * Arr::extract($_POST, array('username', 'password'))
      *
@@ -115,14 +119,15 @@ abstract class Arr
      * @param mixed $default
      * @return array
      */
-    public static function extract(array $arr,array $keys,$default=null)
+    public static function extract(array $arr, array $keys, $default = null)
     {
-        $ret=array();
-        foreach($keys as $key){
-            $ret[$key]=isset($arr[$key]) ? $arr[$key] : $default;
+        $ret = array();
+        foreach ($keys as $key) {
+            $ret[$key] = isset($arr[$key]) ? $arr[$key] : $default;
         }
         return $ret;
     }
+
     /**
      * Arr::pluck($orm_result, 'username')
      *
@@ -131,12 +136,12 @@ abstract class Arr
      * @param $key
      * @return array
      */
-    public static function pluck(array $arr,$key)
+    public static function pluck(array $arr, $key)
     {
-        $ret=array();
-        foreach($arr as $row){
-            if(isset($row[$key])){
-                $ret[]=$row[$key];
+        $ret = array();
+        foreach ($arr as $row) {
+            if (isset($row[$key])) {
+                $ret[] = $row[$key];
             }
         }
         return $ret;

@@ -1,5 +1,5 @@
 <?php
-
+header("Content-Type:text/html;charset=utf-8");
 require(__DIR__.'/../bootstrap.php');
 $dir = dirname(__DIR__);
 use Framework\Core\App;
