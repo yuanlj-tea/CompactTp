@@ -207,6 +207,8 @@ class App
         if (isset($class_map[$className])) {
             require $class_map[$className];
         }*/
+
+        //echo $class_name.'<br>';
         return self::import($class_name . '.php', false);
     }
 
@@ -219,6 +221,7 @@ class App
      */
     public static function import($name, $throw = true)
     {
+        //p($name);
         $name = self::parseName($name);
 
         if (\is_file($name)) {
@@ -239,6 +242,7 @@ class App
      */
     public static function parseName($name)
     {
+        //p(self::$tr_pairs,1);
         return \strtr($name, self::$tr_pairs);
     }
 }

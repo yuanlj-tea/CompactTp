@@ -9,7 +9,7 @@ class Home extends Basic
     {
         //p(Request::isAjax(),1);
         //p($_SERVER,1);
-        p(Request::get('test','默认数据'),1);
+        //p(Request::get('test','默认数据'),1);
         $model=new Message();
         $msg=$model->getMsgById(7);
         p($msg,1);
